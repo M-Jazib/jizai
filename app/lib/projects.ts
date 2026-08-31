@@ -102,35 +102,90 @@ export const projects: Project[] = [
     youtubeUrl: "https://www.youtube.com/embed/WZsOiCDowFw?si=67G-6uti2y_4YS-K",
   },
   {
-    id: "crm-automation-workflow",
-    title: "CRM Automation Workflow",
-    description:
-      "An automated CRM workflow that captures leads, organizes customer data, triggers follow-ups, and connects business tools through automation.",
-    longDescription:
-      "This comprehensive CRM automation workflow connects lead capture forms, email platforms, and CRM systems into a seamless pipeline. New leads are automatically enriched, segmented, and routed to the appropriate sales team member. Follow-up sequences are triggered based on lead behavior, ensuring no opportunity falls through the cracks.",
-    image: "C:/Users/mianh/Downloads/Compressed/jizai-website/Images/Voice agent .png",
-    technologies: ["CRM", "n8n", "APIs", "Automation"],
-    features: [
-      "Automated lead capture and enrichment",
-      "Smart lead segmentation and routing",
-      "Automated follow-up sequences",
-      "CRM data synchronization",
-      "Sales pipeline automation",
-    ],
+    id: "ai-crm-revenue-engine",
+    title: "AI CRM Revenue Engine",
+    description:"An AI-powered CRM revenue engine that captures, qualifies, researches, scores, nurtures, and routes leads automatically while keeping HubSpot as the central source of truth.",
+  longDescription: "A complete AI-driven sales automation system built with n8n, HubSpot, AI agents, APIs, and PostgreSQL. The system captures leads from forms, websites, and email, automatically enriches and researches companies, qualifies prospects using AI, assigns lead scores and priorities, generates personalized outreach, detects email replies, classifies prospect intent, triggers follow-ups, and routes high-intent conversations to the sales team. Human approval is built into critical sales actions to keep the automation controlled and reliable.",
+    image: "/images/AI_CRM_Revenue_Engine.png",
+     technologies: [
+    "n8n",
+    "HubSpot",
+    "AI Agents",
+    "OpenAI",
+    "Gmail",
+    "APIs",
+    "PostgreSQL",
+    "Webhooks",
+    "Automation"
+  ],
+      features: [
+    "Multi-source lead capture",
+    "AI-powered lead qualification",
+    "Automated company research",
+    "AI lead scoring and priority detection",
+    "Buying intent analysis",
+    "Personalized AI sales outreach",
+    "Automated email reply detection",
+    "AI reply classification",
+    "Smart follow-up scheduling",
+    "HubSpot CRM synchronization",
+    "Sales team notifications",
+    "Human approval and control",
+    "Meeting booking automation",
+    "Deal pipeline automation",
+    "AI deal intelligence",
+    "Client onboarding automation",
+    "Automated reporting"
+  ],
     problem:
-      "Manual CRM data entry and follow-up processes are time-consuming and result in lost leads and inconsistent customer communication.",
-    solution:
-      "An end-to-end automated workflow that captures leads from any source, enriches data, updates CRM records, and triggers personalized follow-ups automatically.",
-    workflow: [
-      "Lead submits form or interacts with business touchpoint",
-      "Lead data is captured and enriched with additional info",
-      "CRM record is created or updated automatically",
-      "Lead is segmented and assigned to sales rep",
-      "Personalized follow-up sequence is triggered",
-      "Sales team receives notification with lead context",
+    "Sales teams often lose opportunities because leads are captured across different channels, CRM data requires manual updates, qualification takes time, follow-ups are inconsistent, and sales representatives lack the right context when responding to prospects.",
+
+  solution:
+    "An end-to-end AI CRM revenue engine that connects lead sources, email, HubSpot, AI agents, APIs, and databases into one intelligent sales pipeline. Leads are automatically captured, enriched, researched, scored, personalized, contacted, monitored for replies, followed up, and moved through the sales pipeline with human approval at critical stages.",
+
+  workflow: [
+    "Lead enters through website, form, or email",
+
+    "n8n captures and normalizes the lead data",
+
+    "Lead is created or updated in HubSpot CRM",
+
+    "AI qualification agent analyzes the lead and business need",
+
+    "Company research agent researches the prospect and identifies potential pain points",
+
+    "AI scoring engine calculates lead score, priority, and buying intent",
+
+    "Hot leads are routed to the sales team while warm leads enter an AI nurture flow",
+
+    "AI generates personalized sales outreach based on lead and company context",
+
+    "Email is sent automatically and the communication is tracked",
+
+    "Incoming prospect replies are detected and analyzed",
+
+    "AI classifies replies as positive, question, not-now, negative, unsubscribe, or out-of-office",
+
+    "Positive replies are marked as REPLIED and the sales team is notified",
+
+    "Not-now prospects are scheduled for automated follow-up",
+
+    "Negative and unsubscribe replies automatically stop further outreach",
+
+    "Qualified prospects move toward meeting booking",
+
+    "Meeting bookings update the CRM and sales pipeline",
+
+    "Deals are tracked through the sales pipeline",
+
+    "AI provides deal intelligence and recommended next actions",
+
+    "Won deals trigger client onboarding workflows",
+
+    "CRM and automation data are used for reporting and revenue insights"
     ],
     // Replace with your actual YouTube demo URL
-    youtubeUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    youtubeUrl: "https://www.youtube.com/embed/wuCXbOsltNI?si=iVjT51nkV7CN4OTX",
   },
   {
     id: "business-workflow-automation",

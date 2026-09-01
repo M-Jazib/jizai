@@ -18,35 +18,60 @@ export interface Project {
 // ============================================
 
 export const projects: Project[] = [
-  {
-    id: "ai-pdf-rag-chatbot",
-    title: "AI PDF RAG Chatbot",
-    description:
-      "An AI-powered document assistant that allows users to interact with PDF knowledge bases and retrieve relevant information using Retrieval-Augmented Generation.",
-    longDescription:
-      "This project delivers an intelligent document assistant that transforms static PDFs into interactive knowledge bases. Users can ask natural language questions and receive accurate, context-aware answers sourced directly from their documents. The system uses vector embeddings to understand document semantics and retrieves the most relevant passages to ground AI responses in factual content.",
-    image: "/images/project-rag.jpg",
-    technologies: ["n8n", "RAG", "AI", "Vector Database"],
-    features: [
-      "Natural language querying over PDF documents",
-      "Vector-based semantic search",
-      "Context-aware AI responses",
-      "Multi-document knowledge base support",
-      "Real-time document processing",
-    ],
-    problem:
-      "Businesses accumulate vast amounts of documentation (manuals, reports, contracts) that are difficult to search and extract insights from efficiently.",
-    solution:
-      "A RAG-powered chatbot that ingests PDFs, creates vector embeddings, and enables conversational access to document knowledge with source citations.",
-    workflow: [
-      "Upload PDF documents to the system",
-      "Documents are parsed and converted to vector embeddings",
-      "User asks a question in natural language",
-      "System retrieves relevant document chunks via vector search",
-      "AI generates a contextual answer based on retrieved content",
-    ],
+    {
+  id: "ai-pdf-rag-chatbot",
+
+  title: "AI PDF RAG Chatbot",
+
+  description:
+    "An AI-powered document assistant that lets users upload PDF files, ask questions about their documents, and receive context-aware answers using Retrieval-Augmented Generation.",
+
+  longDescription:
+    "This project transforms static PDF documents into an interactive AI knowledge base. Users can upload documents and ask questions using natural language. The system processes the uploaded files, extracts and splits their content into manageable chunks, generates vector embeddings, and stores the document knowledge for semantic retrieval. When a user asks a question, the system retrieves the most relevant information and provides an AI-generated answer grounded in the uploaded documents.",
+
+  image: "/images/Rag Agent.png",
+
+  technologies: [
+    "n8n",
+    "RAG",
+    "AI",
+    "Vector Database",
+    "Embeddings",
+    "PDF Processing"
+  ],
+
+  features: [
+    "PDF document upload and processing",
+    "Natural language questions over documents",
+    "Retrieval-Augmented Generation (RAG)",
+    "Semantic vector search",
+    "Document chunking and embeddings",
+    "Context-aware AI responses",
+    "Knowledge base creation from uploaded files",
+    "Automated document processing workflow"
+  ],
+
+  problem:
+    "Important information is often buried inside long PDFs, manuals, reports, and business documents. Finding specific information manually takes time and makes it difficult for users to quickly extract useful answers from their existing documentation.",
+
+  solution:
+    "A RAG-powered AI chatbot that converts uploaded PDF documents into a searchable knowledge base. The system processes and chunks documents, creates embeddings, retrieves relevant content based on the user's question, and uses AI to generate answers grounded in the document knowledge.",
+
+  workflow: [
+    "User uploads a PDF document",
+    "n8n receives and processes the uploaded file",
+    "PDF content is extracted using a document loader",
+    "Document text is split into smaller searchable chunks",
+    "Chunks are converted into vector embeddings",
+    "Embeddings are stored in the vector database",
+    "User asks a question about the uploaded document",
+    "Relevant document chunks are retrieved using semantic search",
+    "AI generates a context-aware answer using the retrieved information",
+    "The response is returned to the user"
+  ],
+
     // Replace with your actual YouTube demo URL
-    youtubeUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    youtubeUrl: "https://www.youtube.com/embed/eIzJacaCk0w?si=OuqCvWohlNgTxst8",
   },
   {
     id: "ai-voice-agent",

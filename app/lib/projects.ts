@@ -29,7 +29,7 @@ export const projects: Project[] = [
   longDescription:
     "This project transforms static PDF documents into an interactive AI knowledge base. Users can upload documents and ask questions using natural language. The system processes the uploaded files, extracts and splits their content into manageable chunks, generates vector embeddings, and stores the document knowledge for semantic retrieval. When a user asks a question, the system retrieves the most relevant information and provides an AI-generated answer grounded in the uploaded documents.",
 
-  image: "/images/Rag Agent.png",
+  image: "/images/Rag-Agent.png",
 
   technologies: [
     "n8n",
@@ -71,7 +71,7 @@ export const projects: Project[] = [
   ],
 
     // Replace with your actual YouTube demo URL
-    youtubeUrl: "https://www.youtube.com/embed/eIzJacaCk0w?si=OuqCvWohlNgTxst8",
+    youtubeUrl: "https://www.youtube.com/embed/eIzJacaCk0w?si=opRI8nyX0pviVg8F",
   },
   {
     id: "ai-voice-agent",

@@ -187,37 +187,39 @@ export const projects: Project[] = [
     // Replace with your actual YouTube demo URL
     youtubeUrl: "https://www.youtube.com/embed/wuCXbOsltNI?si=iVjT51nkV7CN4OTX",
   },
-  {
-    id: "business-workflow-automation",
-    title: "Business Workflow Automation",
-    description:
-      "An automated workflow connecting multiple business tools to reduce repetitive manual tasks and improve operational efficiency.",
-    longDescription:
-      "This project unifies disparate business tools into cohesive automated workflows. Data flows seamlessly between applications, eliminating manual copy-paste work and reducing human error. From invoice processing to inventory updates to team notifications, routine tasks are handled automatically so teams can focus on high-value work.",
-    image: "/images/project-workflow.jpg",
-    technologies: ["n8n", "APIs", "AI", "Automation"],
-    features: [
-      "Multi-tool API integrations",
-      "Automated data synchronization",
-      "Error handling and retry logic",
-      "Real-time notifications and alerts",
-      "Custom workflow logic and branching",
-    ],
-    problem:
-      "Teams waste hours on repetitive tasks like copying data between apps, sending routine emails, and updating multiple systems manually.",
-    solution:
-      "A centralized automation hub that connects all business tools and automates cross-platform workflows with intelligent error handling and monitoring.",
-    workflow: [
-      "Trigger event occurs (new order, form submission, scheduled time)",
-      "Automation workflow is initiated",
-      "Data is extracted, transformed, and validated",
-      "Connected systems are updated in sequence",
-      "Team members receive relevant notifications",
-      "Execution log is recorded for audit and debugging",
-    ],
-    // Replace with your actual YouTube demo URL
-    youtubeUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
-  },
+    {
+  id: "ai-sales-follow-up",
+  title: "AI Sales Follow-Up & Pipeline Agent",
+  description:
+    "An AI-powered sales automation system that detects stalled deals, generates personalized follow-up emails, and updates the CRM automatically.",
+  longDescription:
+    "This workflow helps sales teams prevent opportunities from going cold. It monitors HubSpot deals for inactivity, identifies stalled opportunities, finds the associated contact, and uses AI to generate a context-aware follow-up email based on the deal and contact information. The email is sent automatically through Gmail and the HubSpot deal is updated after the follow-up is completed.",
+  image: "/images/AI-Sales-follow-up-agent.png",
+  technologies: ["n8n", "HubSpot", "Gmail", "AI", "APIs", "Automation"],
+  features: [
+    "Automatic stalled-deal detection",
+    "HubSpot deal and contact integration",
+    "AI-generated personalized follow-up emails",
+    "Automatic Gmail email delivery",
+    "HubSpot deal status updates",
+    "Conditional workflow logic and branching",
+  ],
+  problem:
+    "Sales teams often forget to follow up with prospects after a few days of inactivity. These missed follow-ups can cause otherwise valuable opportunities to go cold or become lost deals.",
+  solution:
+    "An automated AI sales agent that monitors HubSpot deals, detects opportunities that have been inactive for several days, retrieves the associated contact, generates a personalized follow-up email, sends it through Gmail, and updates the deal in HubSpot.",
+  workflow: [
+    "HubSpot deals are retrieved on a scheduled basis",
+    "Deals are checked for inactivity and stalled status",
+    "Associated contact information is retrieved",
+    "AI analyzes the deal and contact context",
+    "A personalized follow-up email is generated",
+    "Email is sent automatically through Gmail",
+    "HubSpot deal is updated after the follow-up",
+  ],
+  // Replace with your actual YouTube demo URL
+  youtubeUrl: "https://www.youtube.com/embed/Hodfkt4KcWw?si=beiUHQJHhsXVNJP7",
+},
 ]
 
 export function getProjectById(id: string): Project | undefined {

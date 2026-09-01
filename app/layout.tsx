@@ -6,6 +6,9 @@ import { siteConfig } from "./lib/config"
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" })
 
 export const metadata: Metadata = {
+  icons: {
+    icon: '/images/jizai-icon.svg',
+  },
   title: `${siteConfig.name} — AI Automation Agency`,
   description: siteConfig.description,
   keywords: [

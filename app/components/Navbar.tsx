@@ -32,9 +32,7 @@ export default function Navbar() {
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
           <a href="/" className="flex items-center gap-2 group">
-            <div className="w-8 h-8 rounded-lg bg-accent/10 border border-accent/20 flex items-center justify-center group-hover:bg-accent/20 transition-colors">
-              <Zap className="w-4 h-4 text-accent-light" />
-            </div>
+            <img src="/images/jizai-icon.svg" alt="JizAI" className="w-14 h-14" />
             <span className="text-xl font-bold text-white tracking-tight">
               {siteConfig.name}
             </span>

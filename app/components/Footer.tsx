@@ -9,9 +9,7 @@ export default function Footer() {
           {/* Brand */}
           <div className="md:col-span-2">
             <div className="flex items-center gap-2 mb-4">
-              <div className="w-8 h-8 rounded-lg bg-accent/10 border border-accent/20 flex items-center justify-center">
-                <Zap className="w-4 h-4 text-accent-light" />
-              </div>
+              <img src="/images/jizai-icon.svg" alt="JizAI" className="w-12 h-12" />
               <span className="text-xl font-bold text-white">{siteConfig.name}</span>
             </div>
             <p className="text-muted text-sm max-w-sm leading-relaxed mb-6">

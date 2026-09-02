@@ -120,9 +120,7 @@ export default function Footer() {
           <p className="text-muted text-sm">
             &copy; 2026 {siteConfig.name}. All rights reserved.
           </p>
-          <p className="text-muted/60 text-xs">
-            Built with Next.js, Tailwind CSS & Framer Motion
-          </p>
+    
         </div>
       </div>
     </footer>

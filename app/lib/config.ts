@@ -15,11 +15,11 @@ export const siteConfig = {
 export const contactConfig = {
   // Replace these placeholders with your actual contact links
   whatsapp: "https://wa.me/03055808188", // Replace with your WhatsApp link
-  email: "hello@jizai.com", // Replace with your email
+  email: "jizai.online@gmail.com", // Replace with your email
   linkedin: "https://linkedin.com/in/yourprofile", // Replace with your LinkedIn
   fiverr: "https://fiverr.com/yourprofile", // Replace with your Fiverr
   upwork: "https://upwork.com/freelancers/yourprofile", // Replace with your Upwork
-  youtube: "https://youtube.com/@yourchannel", // Replace with your YouTube channel
+  youtube: "https://www.youtube.com/@JizAI-r2d", // Replace with your YouTube channel
 }
 
 export const socialLinks = {

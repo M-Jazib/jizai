@@ -1,8 +1,9 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { MessageCircle, Mail, Linkedin, Youtube, ExternalLink } from "lucide-react"
+import { MessageCircle, Mail, Linkedin, Youtube, ExternalLink, Copy, Check } from "lucide-react"
 import { contactConfig } from "../lib/config"
+import { useState } from "react"
 
 const contactMethods = [
   {
@@ -11,13 +12,6 @@ const contactMethods = [
     icon: MessageCircle,
     href: contactConfig.whatsapp,
     color: "hover:bg-green-500/10 hover:border-green-500/30 hover:text-green-400",
-  },
-  {
-    name: "Email",
-    description: "Send us a detailed message",
-    icon: Mail,
-    href: `mailto:${contactConfig.email}`,
-    color: "hover:bg-accent/10 hover:border-accent/30 hover:text-accent-light",
   },
   {
     name: "LinkedIn",
@@ -50,6 +44,18 @@ const contactMethods = [
 ]
 
 export default function Contact() {
+  const [copied, setCopied] = useState(false)
+
+  const copyEmail = () => {
+    navigator.clipboard.writeText(contactConfig.email)
+    setCopied(true)
+    setTimeout(() => setCopied(false), 2000)
+  }
+
+  const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(contactConfig.email)}&su=Project%20Inquiry%20-%20JizAI`
+  
+  const outlookUrl = `https://outlook.live.com/mail/0/deeplink/compose?to=${encodeURIComponent(contactConfig.email)}&subject=Project%20Inquiry%20-%20JizAI`
+
   return (
     <section id="contact" className="py-20 md:py-32 bg-card/20">
       <div className="container-custom section-padding">
@@ -90,7 +96,64 @@ export default function Contact() {
               </p>
             </div>
 
-            {/* Contact Methods Grid */}
+            {/* Email Section */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="p-6 rounded-xl bg-white/5 border border-white/10 mb-6"
+            >
+              <div className="flex items-center justify-center gap-3 mb-4">
+                <div className="w-10 h-10 rounded-lg bg-accent/10 flex items-center justify-center">
+                  <Mail className="w-5 h-5 text-accent-light" />
+                </div>
+                <span className="text-white font-semibold">Email Us</span>
+              </div>
+              
+              <div className="flex items-center justify-center gap-3 mb-5">
+                <code className="px-4 py-2 rounded-lg bg-black/30 text-accent-light font-mono text-sm">
+                  {contactConfig.email}
+                </code>
+                <button
+                  onClick={copyEmail}
+                  className="p-2 rounded-lg bg-white/5 hover:bg-white/10 transition-colors"
+                  title="Copy email"
+                >
+                  {copied ? (
+                    <Check className="w-4 h-4 text-green-400" />
+                  ) : (
+                    <Copy className="w-4 h-4 text-muted" />
+                  )}
+                </button>
+              </div>
+
+              <div className="flex items-center justify-center gap-3">
+                <a
+                  href={gmailUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-red-500/10 border border-red-500/20 text-red-400 text-sm font-medium hover:bg-red-500/20 transition-all"
+                >
+                  <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                  </svg>
+                  Open in Gmail
+                </a>
+                <a
+                  href={outlookUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-sm font-medium hover:bg-blue-500/20 transition-all"
+                >
+                  <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                  </svg>
+                  Open in Outlook
+                </a>
+              </div>
+            </motion.div>
+
+            {/* Other Contact Methods Grid */}
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
               {contactMethods.map((method, index) => (
                 <motion.a

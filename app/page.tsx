@@ -8,6 +8,7 @@ import Projects from "./sections/Projects"
 import Process from "./sections/Process"
 import About from "./sections/About"
 import WhyJizAI from "./sections/WhyJizAI"
+import Testimonials from "./sections/Testimonials" 
 import CTA from "./sections/CTA"
 import Contact from "./sections/Contact"
 
@@ -23,6 +24,7 @@ export default function Home() {
       <Process />
       <About />
       <WhyJizAI />
+      <Testimonials /> 
       <CTA />
       <Contact />
       <Footer />

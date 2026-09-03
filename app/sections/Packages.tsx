@@ -27,6 +27,7 @@ const packages = [
       "1 Tool Integration",
       "1 Revision",
       "Email Support",
+      "Basic Analytics",
     ],
     missing: ["CRM Integration", "Lead Follow-up", "Review Automation"],
   },
@@ -65,7 +66,7 @@ const packages = [
   },
 ]
 
-const industryData: Record<string, { desc: string; table: { name: string; b: boolean; g: boolean; d: boolean }[] }> = {
+const industryData = {
   hvac: {
     desc: "Automated scheduling, seasonal maintenance reminders, and emergency dispatch workflows for HVAC companies.",
     table: [
@@ -141,7 +142,7 @@ const industryData: Record<string, { desc: string; table: { name: string; b: boo
 export default function Packages() {
   const [activeIndustry, setActiveIndustry] = useState("hvac")
 
-  const currentData = industryData[activeIndustry]
+  const currentData = industryData[activeIndustry as keyof typeof industryData]
 
   const getWhatsAppLink = (pkgName: string) => {
     const msg = `Hi JizAI! I'm interested in the ${pkgName} package for my ${activeIndustry} business.`
@@ -201,8 +202,8 @@ export default function Packages() {
           </motion.div>
         </AnimatePresence>
 
-        {/* Pricing Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 items-start max-w-6xl mx-auto mb-16">
+        {/* Pricing Cards - Equal Height */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 items-stretch max-w-6xl mx-auto mb-16">
           {packages.map((pkg, index) => (
             <motion.div
               key={pkg.name}
@@ -210,17 +211,18 @@ export default function Packages() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className={`relative rounded-2xl p-6 md:p-8 ${
+              whileHover={{ y: -8, scale: 1.02 }}
+              className={`relative rounded-2xl p-6 md:p-8 flex flex-col transition-all duration-300 cursor-pointer group ${
                 pkg.color === "gold"
-                  ? "bg-yellow-500/5 border-2 border-yellow-500/30 md:scale-105 z-10"
+                  ? "bg-yellow-500/5 border-2 border-yellow-500/30 md:scale-105 z-10 hover:border-yellow-400/60 hover:shadow-[0_0_40px_rgba(234,179,8,0.15)]"
                   : pkg.color === "bronze"
-                  ? "bg-white/5 border border-white/10"
-                  : "bg-accent/5 border border-accent/20"
+                  ? "bg-white/5 border border-white/10 hover:border-orange-400/40 hover:shadow-[0_0_40px_rgba(251,146,60,0.1)] hover:bg-white/[0.07]"
+                  : "bg-accent/5 border border-accent/20 hover:border-accent/50 hover:shadow-[0_0_40px_rgba(99,102,241,0.15)] hover:bg-accent/[0.08]"
               }`}
             >
               {/* Popular Badge */}
               {pkg.popular && (
-                <div className="absolute -top-4 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full bg-yellow-500 text-black text-xs font-bold uppercase tracking-wider">
+                <div className="absolute -top-4 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full bg-yellow-500 text-black text-xs font-bold uppercase tracking-wider shadow-lg">
                   Most Popular
                 </div>
               )}
@@ -228,12 +230,12 @@ export default function Packages() {
               {/* Header */}
               <div className="flex items-center gap-3 mb-4">
                 <div
-                  className={`w-10 h-10 rounded-xl flex items-center justify-center ${
+                  className={`w-10 h-10 rounded-xl flex items-center justify-center transition-transform duration-300 group-hover:scale-110 ${
                     pkg.color === "gold"
-                      ? "bg-yellow-500/20 text-yellow-400"
+                      ? "bg-yellow-500/20 text-yellow-400 group-hover:bg-yellow-500/30"
                       : pkg.color === "bronze"
-                      ? "bg-orange-700/20 text-orange-400"
-                      : "bg-accent/20 text-accent-light"
+                      ? "bg-orange-700/20 text-orange-400 group-hover:bg-orange-500/30"
+                      : "bg-accent/20 text-accent-light group-hover:bg-accent/30"
                   }`}
                 >
                   {pkg.color === "bronze" && (
@@ -253,37 +255,37 @@ export default function Packages() {
                   )}
                 </div>
                 <div>
-                  <h3 className="text-xl font-bold text-white">{pkg.name}</h3>
+                  <h3 className="text-xl font-bold text-white group-hover:text-white transition-colors">{pkg.name}</h3>
                   <p className="text-xs text-muted">{pkg.subtitle}</p>
                 </div>
               </div>
 
               {/* Price */}
               <div className="mb-4">
-                <span className="text-4xl font-bold text-white">{pkg.price}</span>
+                <span className="text-4xl font-bold text-white group-hover:text-white transition-colors">{pkg.price}</span>
                 <span className="text-muted text-sm"> one-time</span>
               </div>
 
               {/* Delivery */}
               <div
-                className={`inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-medium mb-6 ${
+                className={`inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-medium mb-6 w-fit transition-colors duration-300 ${
                   pkg.color === "gold"
-                    ? "bg-yellow-500/10 text-yellow-400"
+                    ? "bg-yellow-500/10 text-yellow-400 group-hover:bg-yellow-500/20"
                     : pkg.color === "bronze"
-                    ? "bg-orange-500/10 text-orange-400"
-                    : "bg-accent/10 text-accent-light"
+                    ? "bg-orange-500/10 text-orange-400 group-hover:bg-orange-500/20"
+                    : "bg-accent/10 text-accent-light group-hover:bg-accent/20"
                 }`}
               >
                 <Clock className="w-3 h-3" />
                 Delivery: {pkg.delivery}
               </div>
 
-              {/* Features */}
-              <ul className="space-y-3 mb-8">
+              {/* Features - flex-grow to push button down */}
+              <ul className="space-y-3 mb-8 flex-grow">
                 {pkg.features.map((feature, i) => (
                   <li key={i} className="flex items-start gap-3 text-sm">
                     <Check
-                      className={`w-5 h-5 flex-shrink-0 mt-0.5 ${
+                      className={`w-5 h-5 flex-shrink-0 mt-0.5 transition-transform duration-300 group-hover:scale-110 ${
                         pkg.color === "gold" ? "text-yellow-400" : "text-accent-light"
                       }`}
                     />
@@ -298,17 +300,17 @@ export default function Packages() {
                 ))}
               </ul>
 
-              {/* CTA */}
+              {/* CTA - always at bottom */}
               <a
                 href={getWhatsAppLink(pkg.name)}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`block w-full text-center py-3 rounded-xl font-semibold text-sm transition-all ${
+                className={`block w-full text-center py-3 rounded-xl font-semibold text-sm transition-all duration-300 mt-auto ${
                   pkg.color === "gold"
-                    ? "bg-yellow-500 text-black hover:bg-yellow-400"
+                    ? "bg-yellow-500 text-black hover:bg-yellow-400 group-hover:shadow-lg group-hover:shadow-yellow-500/25"
                     : pkg.color === "bronze"
-                    ? "bg-white/5 text-white border border-white/10 hover:bg-white/10"
-                    : "bg-accent text-white hover:bg-accent-light shadow-lg shadow-accent/25"
+                    ? "bg-white/5 text-white border border-white/10 hover:bg-white/10 group-hover:border-orange-400/30"
+                    : "bg-accent text-white hover:bg-accent-light shadow-lg shadow-accent/25 group-hover:shadow-accent/40"
                 }`}
               >
                 <span className="flex items-center justify-center gap-2">
@@ -362,7 +364,7 @@ export default function Packages() {
                         {currentData.table.map((row, i) => (
                           <div
                             key={row.name}
-                            className={`grid grid-cols-4 items-center ${
+                            className={`grid grid-cols-4 items-center transition-colors duration-200 hover:bg-white/[0.03] ${
                               i < currentData.table.length - 1 ? "border-b border-white/5" : ""
                             }`}
                           >

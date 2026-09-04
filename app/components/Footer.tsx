@@ -93,22 +93,22 @@ export default function Footer() {
               </li>
               <li>
                 <a
-                  href={socialLinks.fiverr}
+                  href={socialLinks.telegram}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-muted text-sm hover:text-white transition-colors"
                 >
-                  Fiverr
+                  Telegram
                 </a>
               </li>
               <li>
                 <a
-                  href={socialLinks.upwork}
+                  href={socialLinks.reddit}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-muted text-sm hover:text-white transition-colors"
                 >
-                  Upwork
+                  Reddit
                 </a>
               </li>
             </ul>

@@ -18,11 +18,11 @@ export const contactConfig = {
   youtube: "https://www.youtube.com/@JizAI-r2d",
 
   // Social Media
-  telegram: "YOUR_TELEGRAM_LINK",
+  telegram: "https://t.me/JizAionline",
   instagram: "https://www.instagram.com/jizai.online/",
-  facebook: "YOUR_FACEBOOK_LINK",
-  reddit: "YOUR_REDDIT_LINK",
-  discord: "YOUR_DISCORD_LINK",
+  facebook: "https://www.facebook.com/share/1E6GM2otDs/",
+  reddit: "https://www.reddit.com/user/Opening-Engineer-386/?utm_source=share&utm_medium=web3x&utm_name=web3xcss&utm_term=1&utm_content=share_button",
+  discord: "https://discord.gg/mz7bdRDU6",
 }
 
 export const socialLinks = {

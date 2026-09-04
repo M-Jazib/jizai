@@ -14,7 +14,7 @@ import ServiceCard from "../components/ServiceCard"
 
 const services = [
   {
-    number: "01",
+    number: "",
     title: "AI Agents",
     description:
       "Intelligent AI agents that understand tasks, make decisions, use tools, and automate complex business workflows.",
@@ -27,7 +27,7 @@ const services = [
     icon: Bot,
   },
   {
-    number: "02",
+    number: "",
     title: "n8n Automation",
     description:
       "Connect your favorite tools and automate repetitive business processes with powerful n8n workflows.",
@@ -40,7 +40,7 @@ const services = [
     icon: Workflow,
   },
   {
-    number: "03",
+    number: "",
     title: "CRM Solutions",
     description:
       "Organize customer relationships, automate sales processes, and connect CRM systems with intelligent workflows.",
@@ -55,7 +55,7 @@ const services = [
     icon: Users,
   },
   {
-    number: "04",
+    number: "",
     title: "AI Chatbots",
     description:
       "Build intelligent conversational assistants for websites, customer support, internal teams, and business operations.",
@@ -68,7 +68,7 @@ const services = [
     icon: MessageSquare,
   },
   {
-    number: "05",
+    number: "",
     title: "RAG Systems",
     description:
       "AI assistants that retrieve information from documents and knowledge bases to provide relevant and context-aware responses.",
@@ -81,7 +81,7 @@ const services = [
     icon: FileSearch,
   },
   {
-    number: "06",
+    number: "",
     title: "AI Voice Agents",
     description:
       "Voice-powered AI assistants designed to automate conversations, handle calls, and improve customer interactions.",
@@ -94,7 +94,7 @@ const services = [
     icon: Mic,
   },
   {
-    number: "07",
+    number: "",
     title: "API & Business Automation",
     description:
       "Connect APIs, applications, AI models, CRM platforms, and business tools into seamless automated workflows.",

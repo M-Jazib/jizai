@@ -322,84 +322,332 @@ export default function Packages() {
           ))}
         </div>
 
-        {/* Industry Feature Comparison Table */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="max-w-4xl mx-auto"
-        >
-          <h3 className="text-xl font-semibold text-white text-center mb-6">
-            Industry-Specific Automations
-          </h3>
-          <div className="rounded-2xl bg-white/5 border border-white/5 overflow-hidden">
-            <div className="overflow-x-auto">
-              <table className="w-full text-sm">
-                <thead>
-                  <tr className="border-b border-white/5">
-                    <th className="text-left p-4 text-muted font-medium text-xs uppercase tracking-wider">
-                      Automation
-                    </th>
-                    <th className="text-center p-4 text-orange-400 font-semibold text-xs w-24">
-                      Bronze
-                    </th>
-                    <th className="text-center p-4 text-yellow-400 font-semibold text-xs w-24">
-                      Gold
-                    </th>
-                    <th className="text-center p-4 text-accent-light font-semibold text-xs w-24">
-                      Diamond
-                    </th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <AnimatePresence mode="wait">
-                    <motion.tr
-                      key={activeIndustry}
-                      initial={{ opacity: 0 }}
-                      animate={{ opacity: 1 }}
-                      exit={{ opacity: 0 }}
-                      transition={{ duration: 0.2 }}
+        {/* ============================================
+    INDUSTRY FEATURE COMPARISON TABLE
+============================================ */}
+
+<motion.div
+  initial={{ opacity: 0, y: 20 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ once: true }}
+  transition={{ duration: 0.5 }}
+  className="max-w-5xl mx-auto mt-16"
+>
+  {/* Title */}
+
+  <h3 className="text-xl md:text-2xl font-semibold text-white text-center mb-6">
+    Industry-Specific Automations
+  </h3>
+
+  {/* Table */}
+
+  <div
+    className="
+      rounded-2xl
+      bg-[#111116]/80
+      border
+      border-white/[0.08]
+      overflow-hidden
+      shadow-xl
+    "
+  >
+
+    <div className="overflow-x-auto">
+
+      <table className="w-full border-collapse">
+
+        {/* ============================================
+            TABLE HEADER
+        ============================================ */}
+
+        <thead>
+
+          <tr
+            className="
+              bg-white/[0.02]
+              border-b
+              border-white/[0.08]
+            "
+          >
+
+            {/* Automation */}
+
+            <th
+              className="
+                w-[40%]
+                text-left
+                px-5
+                py-4
+                text-muted
+                font-medium
+                text-xs
+                uppercase
+                tracking-wider
+              "
+            >
+              Automation
+            </th>
+
+
+            {/* Bronze */}
+
+            <th
+              className="
+                w-[20%]
+                text-center
+                px-3
+                py-4
+                text-orange-400
+                font-semibold
+                text-xs
+              "
+            >
+              Bronze
+            </th>
+
+
+            {/* Gold */}
+
+            <th
+              className="
+                w-[20%]
+                text-center
+                px-3
+                py-4
+                text-yellow-400
+                font-semibold
+                text-xs
+              "
+            >
+              Gold
+            </th>
+
+
+            {/* Diamond */}
+
+            <th
+              className="
+                w-[20%]
+                text-center
+                px-3
+                py-4
+                text-accent-light
+                font-semibold
+                text-xs
+              "
+            >
+              Diamond
+            </th>
+
+          </tr>
+
+        </thead>
+
+
+        {/* ============================================
+            TABLE BODY
+        ============================================ */}
+
+        <tbody>
+
+          <AnimatePresence mode="wait">
+
+            <motion.tr
+              key={activeIndustry}
+              initial={{
+                opacity: 0,
+              }}
+              animate={{
+                opacity: 1,
+              }}
+              exit={{
+                opacity: 0,
+              }}
+              transition={{
+                duration: 0.25,
+              }}
+            >
+
+              {/* IMPORTANT:
+                  We don't use colSpan + nested grid anymore.
+                  This keeps every column perfectly aligned.
+              */}
+
+              <td colSpan={4} className="p-0">
+
+                {currentData.table.map((row, i) => (
+
+                  <div
+                    key={row.name}
+                    className={`
+                      grid
+                      grid-cols-[40%_20%_20%_20%]
+                      items-center
+                      min-h-[64px]
+                      transition-colors
+                      duration-200
+                      hover:bg-white/[0.03]
+
+                      ${
+                        i < currentData.table.length - 1
+                          ? "border-b border-white/[0.06]"
+                          : ""
+                      }
+                    `}
+                  >
+
+                    {/* ====================================
+                        AUTOMATION NAME
+                    ==================================== */}
+
+                    <div
+                      className="
+                        px-5
+                        py-4
+                        text-white/85
+                        text-sm
+                        leading-relaxed
+                      "
                     >
-                      <td colSpan={4} className="p-0">
-                        {currentData.table.map((row, i) => (
-                          <div
-                            key={row.name}
-                            className={`grid grid-cols-4 items-center transition-colors duration-200 hover:bg-white/[0.03] ${
-                              i < currentData.table.length - 1 ? "border-b border-white/5" : ""
-                            }`}
-                          >
-                            <div className="p-4 text-white/80 text-sm">{row.name}</div>
-                            <div className="text-center p-4">
-                              {row.b ? (
-                                <Check className="w-5 h-5 text-accent-light mx-auto" />
-                              ) : (
-                                <X className="w-5 h-5 text-muted/30 mx-auto" />
-                              )}
-                            </div>
-                            <div className="text-center p-4">
-                              {row.g ? (
-                                <Check className="w-5 h-5 text-yellow-400 mx-auto" />
-                              ) : (
-                                <X className="w-5 h-5 text-muted/30 mx-auto" />
-                              )}
-                            </div>
-                            <div className="text-center p-4">
-                              {row.d ? (
-                                <Check className="w-5 h-5 text-accent-light mx-auto" />
-                              ) : (
-                                <X className="w-5 h-5 text-muted/30 mx-auto" />
-                              )}
-                            </div>
-                          </div>
-                        ))}
-                      </td>
-                    </motion.tr>
-                  </AnimatePresence>
-                </tbody>
-              </table>
-            </div>
-          </div>
-        </motion.div>
+                      {row.name}
+                    </div>
+
+
+                    {/* ====================================
+                        BRONZE
+                    ==================================== */}
+
+                    <div
+                      className="
+                        flex
+                        items-center
+                        justify-center
+                        px-3
+                        py-4
+                      "
+                    >
+
+                      {row.b ? (
+
+                        <Check
+                          className="
+                            w-5
+                            h-5
+                            text-accent-light
+                          "
+                        />
+
+                      ) : (
+
+                        <X
+                          className="
+                            w-5
+                            h-5
+                            text-muted/25
+                          "
+                        />
+
+                      )}
+
+                    </div>
+
+
+                    {/* ====================================
+                        GOLD
+                    ==================================== */}
+
+                    <div
+                      className="
+                        flex
+                        items-center
+                        justify-center
+                        px-3
+                        py-4
+                      "
+                    >
+
+                      {row.g ? (
+
+                        <Check
+                          className="
+                            w-5
+                            h-5
+                            text-yellow-400
+                          "
+                        />
+
+                      ) : (
+
+                        <X
+                          className="
+                            w-5
+                            h-5
+                            text-muted/25
+                          "
+                        />
+
+                      )}
+
+                    </div>
+
+
+                    {/* ====================================
+                        DIAMOND
+                    ==================================== */}
+
+                    <div
+                      className="
+                        flex
+                        items-center
+                        justify-center
+                        px-3
+                        py-4
+                      "
+                    >
+
+                      {row.d ? (
+
+                        <Check
+                          className="
+                            w-5
+                            h-5
+                            text-accent-light
+                          "
+                        />
+
+                      ) : (
+
+                        <X
+                          className="
+                            w-5
+                            h-5
+                            text-muted/25
+                          "
+                        />
+
+                      )}
+
+                    </div>
+
+                  </div>
+
+                ))}
+
+              </td>
+
+            </motion.tr>
+
+          </AnimatePresence>
+
+        </tbody>
+
+      </table>
+
+    </div>
+
+  </div>
+
+</motion.div>
 
         {/* Footer Note */}
         <p className="text-center text-muted/60 text-sm mt-10">

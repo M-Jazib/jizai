@@ -32,7 +32,7 @@ export default function Navbar() {
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
           <a href="/" className="flex items-center gap-2 group">
-            <img src="/images/jizai-icon.svg" alt="JizAI" className="w-12 h-12" />
+            <img src="/images/LOGO.png" alt="JizAI" className="w-12 h-12" />
             <span className="text-xl font-bold text-white tracking-tight">
               {siteConfig.name}
             </span>
